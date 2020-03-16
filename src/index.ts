@@ -4,9 +4,15 @@ import { readManifestSync } from 'atom-read-manifest';
 
 const meta = readManifestSync();
 
+const unsupportedTypes = [
+  'table'
+];
+
 function _console(type, ...args) {
   if (atom?.inDevMode()) {
-    args.unshift(`[${meta['name']}]`);
+    if (!unsupportedTypes.includes(type)) {
+      args.unshift(`[${meta['name']}]`);
+    }
 
     return (<any>global).console[type](...args);
   }
