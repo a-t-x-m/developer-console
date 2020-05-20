@@ -5,8 +5,9 @@
   "license": "MIT OR GPL-2.0",
   "scripts": {
     "build": "rimraf tsconfig.tsbuildinfo && tsc --pretty --project ./",
-    "dev": "tsc --watch --pretty --project ./",
+    "dev": "npm run start",
     "lint": "tslint --project ./",
+    "start": "tsc --watch --pretty --project ./",
     "test": "npm run lint"
   },
   "main": "lib/index.js",
@@ -19,15 +20,15 @@
     "atom package"
   ],
   "dependencies": {
-    "atom-read-manifest": "^0.4.2"
+    "atom-read-manifest": "^0.5.1"
   },
   "devDependencies": {
-    "@types/atom": "^1.40.2",
-    "@types/node": "^13.11.1",
+    "@types/atom": "^1.40.4",
+    "@types/node": "^14.0.4",
     "husky": "^4.2.5",
     "rimraf": "^3.0.2",
-    "tslint": "^6.1.1",
-    "typescript": "^3.8.3"
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3"
   },
   "husky": {
     "hooks": {
