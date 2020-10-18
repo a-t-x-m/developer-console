@@ -1,90 +1,76 @@
-'use strict';
-
-import { readManifestSync } from 'atom-read-manifest';
-
-const meta = readManifestSync();
-
-const unsupportedTypes = [
-  'table'
-];
-
 function _console(type, ...args) {
   if (atom?.inDevMode()) {
-    if (!unsupportedTypes.includes(type)) {
-      args.unshift(`[${meta['name']}]`);
-    }
-
-    return (<any>global).console[type](...args);
+    return (global).console[type](...args);
   }
 }
 
-function assert(...args) {
+function assert(...args: unknown[]): unknown {
   return _console('assert', ...args);
 }
-function clear(...args) {
+function clear(...args: unknown[]): unknown {
   return _console('clear', ...args);
 }
-function context(...args) {
+function context(...args: unknown[]): unknown {
   return _console('context', ...args);
 }
-function count(...args) {
+function count(...args: unknown[]): unknown {
   return _console('count', ...args);
 }
-function countReset(...args) {
+function countReset(...args: unknown[]): unknown {
   return _console('countReset', ...args);
 }
-function debug(...args) {
+function debug(...args: unknown[]): unknown {
   return _console('debug', ...args);
 }
-function dir(...args) {
+function dir(...args: unknown[]): unknown {
   return _console('dir', ...args);
 }
-function dirxml(...args) {
+function dirxml(...args: unknown[]): unknown {
   return _console('dirxml', ...args);
 }
-function error(...args) {
+function error(...args: unknown[]): unknown {
   return _console('error', ...args);
 }
-function group(...args) {
+function group(...args: unknown[]): unknown {
   return _console('group', ...args);
 }
-function groupCollapsed(...args) {
+function groupCollapsed(...args: unknown[]): unknown {
   return _console('groupCollapsed', ...args);
 }
-function groupEnd(...args) {
+function groupEnd(...args: unknown[]): unknown {
   return _console('groupEnd', ...args);
 }
-function info(...args) {
+function info(...args: unknown[]): unknown {
   return _console('info', ...args);
 }
-function log(...args) {
+function log(...args: unknown[]): unknown {
   return _console('log', ...args);
 }
-function profile(...args) {
+function profile(...args: unknown[]): unknown {
   return _console('profile', ...args);
 }
-function profileEnd(...args) {
+function profileEnd(...args: unknown[]): unknown {
   return _console('profileEnd', ...args);
 }
-function table(...args) {
+function table(...args: unknown[]): unknown {
   return _console('table', ...args);
 }
-function time(...args) {
+function time(...args: unknown[]): unknown {
   return _console('time', ...args);
 }
-function timeEnd(...args) {
+function timeEnd(...args: unknown[]): unknown {
   return _console('timeEnd', ...args);
 }
-function timeLog(...args) {
+function timeLog(...args: unknown[]): unknown {
   return _console('timeLog', ...args);
 }
-function timeStamp(...args) {
+function timeStamp(...args: unknown[]): unknown {
   return _console('timeStamp', ...args);
 }
-function trace(...args) {
+function trace(...args: unknown[]): unknown {
   return _console('trace', ...args);
 }
-function warn(...args) {
+function warn(...args: unknown[]): unknown {
   return _console('warn', ...args);
 }
 
