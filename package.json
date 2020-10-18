@@ -19,9 +19,7 @@
     "atom",
     "atom package"
   ],
-  "dependencies": {
-    "atom-read-manifest": "^0.5.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
