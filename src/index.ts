@@ -50,11 +50,11 @@ export default class DeveloperConsole {
     this.__console__('debug', ...data);
   }
 
-  dir(data: any): void {
+  dir(data: unknown): void {
     this.__console__('dir', data);
   }
 
-  dirxml(data: any): void {
+  dirxml(data: unknown): void {
     this.__console__('dirxml', data);
   }
 
@@ -82,7 +82,7 @@ export default class DeveloperConsole {
     this.__console__('log', ...data);
   }
 
-  table(tabularData?: any,): void {
+  table(tabularData?: unknown): void {
     this.__console__('table', tabularData);
   }
 
