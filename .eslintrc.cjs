@@ -1,6 +1,11 @@
 /* eslint-disable */
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    es6: true,
+    node: true
+  },
   parser: '@typescript-eslint/parser',
   plugins: [
     '@typescript-eslint'
@@ -10,8 +15,15 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:json/recommended'
   ],
+  globals: {
+    atom: "readonly"
+  },
   rules: {
-    // temporary
-    "@typescript-eslint/ban-ts-comment": "off"
-  }
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  ignorePatterns: [
+    'bower_components',
+    'lib',
+    'node_modules'
+  ]
 };
