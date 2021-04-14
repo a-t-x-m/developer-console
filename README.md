@@ -17,16 +17,14 @@ Wrapper to limit console output to Atom in Developer Mode
 
 ```js
 // JavaScript
-import * as devConsole from '@atxm/developer-console';
+import DeveloperConsole from '@atxm/developer-console';
 
-devConsole.log('Hello World!');
-```
+const console = new DeveloperConsole({
+    name: 'my-module',
+    backgroundColor: 'slategrey',
+});
 
-```coffee
-# CoffeeScript
-const devConsole = require "@atxm/developer-console"
-
-devConsole.log "Hello World!"
+console.log('All set up!');
 ```
 
 ## License
