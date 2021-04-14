@@ -9,7 +9,8 @@
     "fix": "eslint --fix ./src",
     "lint:ts": "eslint ./src --ignore-path .gitignore",
     "lint": "npm-run-all --parallel lint:*",
-    "start": "rollup -w -c"
+    "start": "rollup -w -c",
+    "test": "npm run lint"
   },
   "main": "lib/index.js",
   "repository": {
