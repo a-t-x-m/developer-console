@@ -1,101 +1,108 @@
-function _console(type, ...args) {
-  if (atom?.inDevMode()) {
-    return (global).console[type](...args);
+interface Options {
+  backgroundColor?: string;
+  color?: boolean;
+  name?: string;
+}
+
+export default class DeveloperConsole {
+  name: string;
+  styleSheet: string;
+
+  constructor(options: Options = {}) {
+    this.name = options.name;
+
+    this.styleSheet = `
+      background-color: ${options.backgroundColor || 'darkgrey'};
+      border-radius: 2px;
+      color: ${options.color || 'white'};
+      line-height: 1.5;
+      padding: 1px 4px;
+      text-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
+    `;
+  }
+
+  private __console__(type: string, ...args: any | any[]): void {
+    if (!atom?.inDevMode()) return;
+
+    args.unshift(`%c${this.name}%c`, this.styleSheet, '')
+
+    if (Array.isArray(args)) {
+      (window as any).console[type](...args);
+    } else {
+      args.join(' ');
+      (window as any).console[type](args);
+    }
+  }
+
+  assert(condition?: boolean, ...data: any[]): void {
+    this.__console__('assert', condition, ...data);
+  }
+
+  count(label?: string): void {
+    this.__console__('count', label);
+  }
+
+  countReset(label?: string): void {
+    this.__console__('countReset', label);
+  }
+
+  debug(...data: any[]): void {
+    this.__console__('debug', ...data);
+  }
+
+  dir(data: any): void {
+    this.__console__('dir', data);
+  }
+
+  dirxml(data: any): void {
+    this.__console__('dirxml', data);
+  }
+
+  error(...data: any[]): void {
+    this.__console__('error', ...data);
+  }
+
+  group(label?: string): void {
+    this.__console__('group', label);
+  }
+
+  groupCollapsed(label?: string): void {
+    this.__console__('groupCollapsed', label);
+  }
+
+  groupEnd(): void {
+    this.__console__('groupEnd');
+  }
+
+  info(...data: any[]): void {
+    this.__console__('info', ...data);
+  }
+
+  log(...data: any[]): void {
+    this.__console__('log', ...data);
+  }
+
+  table(tabularData?: any,): void {
+    this.__console__('table', tabularData);
+  }
+
+  time(label?: string): void {
+    this.__console__('time', label);
+  }
+
+  timeEnd(label?: string): void {
+    this.__console__('timeEnd', label);
+  }
+
+  timeLog(label?: string): void {
+    this.__console__('timeLog', label);
+  }
+
+  trace(...data: any[]): void {
+    this.__console__('trace', ...data);
+  }
+
+  warn(...data: any[]): void {
+    this.__console__('warn', ...data);
   }
 }
-
-function assert(...args: unknown[]): unknown {
-  return _console('assert', ...args);
-}
-function clear(...args: unknown[]): unknown {
-  return _console('clear', ...args);
-}
-function context(...args: unknown[]): unknown {
-  return _console('context', ...args);
-}
-function count(...args: unknown[]): unknown {
-  return _console('count', ...args);
-}
-function countReset(...args: unknown[]): unknown {
-  return _console('countReset', ...args);
-}
-function debug(...args: unknown[]): unknown {
-  return _console('debug', ...args);
-}
-function dir(...args: unknown[]): unknown {
-  return _console('dir', ...args);
-}
-function dirxml(...args: unknown[]): unknown {
-  return _console('dirxml', ...args);
-}
-function error(...args: unknown[]): unknown {
-  return _console('error', ...args);
-}
-function group(...args: unknown[]): unknown {
-  return _console('group', ...args);
-}
-function groupCollapsed(...args: unknown[]): unknown {
-  return _console('groupCollapsed', ...args);
-}
-function groupEnd(...args: unknown[]): unknown {
-  return _console('groupEnd', ...args);
-}
-function info(...args: unknown[]): unknown {
-  return _console('info', ...args);
-}
-function log(...args: unknown[]): unknown {
-  return _console('log', ...args);
-}
-function profile(...args: unknown[]): unknown {
-  return _console('profile', ...args);
-}
-function profileEnd(...args: unknown[]): unknown {
-  return _console('profileEnd', ...args);
-}
-function table(...args: unknown[]): unknown {
-  return _console('table', ...args);
-}
-function time(...args: unknown[]): unknown {
-  return _console('time', ...args);
-}
-function timeEnd(...args: unknown[]): unknown {
-  return _console('timeEnd', ...args);
-}
-function timeLog(...args: unknown[]): unknown {
-  return _console('timeLog', ...args);
-}
-function timeStamp(...args: unknown[]): unknown {
-  return _console('timeStamp', ...args);
-}
-function trace(...args: unknown[]): unknown {
-  return _console('trace', ...args);
-}
-function warn(...args: unknown[]): unknown {
-  return _console('warn', ...args);
-}
-
-export {
-  assert,
-  clear,
-  context,
-  count,
-  countReset,
-  debug,
-  dir,
-  dirxml,
-  error,
-  group,
-  groupCollapsed,
-  groupEnd,
-  info,
-  log,
-  profile,
-  profileEnd,
-  table,
-  time,
-  timeEnd,
-  timeLog,
-  timeStamp,
-  trace,
-  warn
-};
