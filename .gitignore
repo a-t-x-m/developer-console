@@ -1,12 +1,13 @@
-# dependencies
+# package manager
 bower_components/
 node_modules/
 vendor/
-
-# package manager files
 npm-debug.log*
 yarn-error.log
 yarn.lock
+
+# development
+.eslintcache
 
 # project specific
 test.js
