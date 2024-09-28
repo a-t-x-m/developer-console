@@ -2,7 +2,7 @@
   "name": "@atxm/developer-console",
   "version": "0.5.0",
   "description": "Wrapper to limit console output to Atom in Developer Mode",
-  "license": "MIT OR GPL-2.0",
+  "license": "MIT",
   "scripts": {
     "build": "tsup",
     "dev": "npm run build -- --watch",
