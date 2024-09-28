@@ -1,6 +1,6 @@
 {
   "name": "@atxm/developer-console",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Wrapper to limit console output to Atom in Developer Mode",
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,7 @@
     "prepare": "husky",
     "publish:npm": "np --no-yarn --any-branch",
     "start": "npm run start",
-		"test": "npm run lint"
+    "test": "npm run lint"
   },
   "type": "module",
   "typings": "./lib/index.ts",
