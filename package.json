@@ -11,7 +11,8 @@
     "prepack": "npm run build",
     "prepare": "husky",
     "publish:npm": "np --no-yarn --any-branch",
-    "start": "npm run start"
+    "start": "npm run start",
+		"test": "npm run lint"
   },
   "type": "module",
   "typings": "./lib/index.ts",
