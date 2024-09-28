@@ -9,6 +9,9 @@ yarn.lock
 # development
 .eslintcache
 
+# build
+lib/
+
 # project specific
 test.js
 test.ts

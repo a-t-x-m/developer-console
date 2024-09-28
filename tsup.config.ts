@@ -11,5 +11,5 @@ export default defineConfig({
 	minify: true,
 	target: 'node14',
 	treeshake: 'recommended',
-  outDir: 'lib,',
+  outDir: 'lib',
 });
