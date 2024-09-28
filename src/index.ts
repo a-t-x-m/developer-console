@@ -1,15 +1,18 @@
 interface Options {
   backgroundColor?: string;
   color?: boolean;
-  name?: string;
 }
 
 export default class DeveloperConsole {
   name: string;
   styleSheet: string;
 
-  constructor(options: Options = {}) {
-    this.name = options.name;
+  constructor(name: string, options: Options = {}) {
+    if (typeof name !== 'string') {
+      throw new TypeError(`DeveloperConsole: name must be a string, got "${typeof name}"`);
+    }
+
+    this.name = name;
 
     this.styleSheet = `
       background-color: ${options.backgroundColor || 'darkgrey'};
@@ -22,10 +25,12 @@ export default class DeveloperConsole {
   }
 
   private __console__(type: string, ...args: any | any[]): void {
-    if (!atom?.inDevMode()) return;
+    if (!atom?.inDevMode()) {
+      return
+    };
 
     args.unshift(`%c${this.name}%c`, this.styleSheet, '');
-    (window as any).console[type](...args);
+    globalThis.console[type](...args);
   }
 
   debug(...data: any[]): void {
