@@ -1,6 +1,6 @@
 interface Options {
   backgroundColor?: string;
-  color?: boolean;
+  color?: string;
 }
 
 export default class DeveloperConsole {
